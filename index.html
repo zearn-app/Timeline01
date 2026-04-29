@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Story Timeline ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+  overflow-x: hidden;
+}
+
+/* Title Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #ff4d6d;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding: 50px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: #ff4d6d;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+/* Timeline Items */
+.container {
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+}
+
+.container.left {
+  left: 0;
+}
+
+.container.right {
+  left: 50%;
+}
+
+.content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.container img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Circles */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: #ff4d6d;
+  border-radius: 50%;
+}
+
+.container.right::before {
+  left: -10px;
+}
+
+/* Scroll Animation */
+.container {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
+
+.container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #444;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Our Beautiful Journey ❤️</h1>
+  <p>Every moment tells a story...</p>
+</div>
+
+<!-- Timeline -->
+<div class="timeline">
+
+  <div class="container left">
+    <div class="content">
+      <h2>💫 The Beginning</h2>
+      <p>The day we met changed everything.</p>
+      <img src="image1.jpg">
+    </div>
+  </div>
+
+  <div class="container right">
+    <div class="content">
+      <h2>🌸 First Memory</h2>
+      <p>Our first laugh together, unforgettable.</p>
+      <img src="image2.jpg">
+    </div>
+  </div>
+
+  <div class="container left">
+    <div class="content">
+      <h2>🎉 Special Day</h2>
+      <p>A day full of happiness and surprises.</p>
+      <img src="image3.jpg">
+    </div>
+  </div>
+
+  <div class="container right">
+    <div class="content">
+      <h2>❤️ Today</h2>
+      <p>Still creating memories together...</p>
+      <img src="image4.jpg">
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  Made with love 💖 | Your Story Never Ends...
+</div>
+
+<script>
+const items = document.querySelectorAll('.container');
+
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+
+  items.forEach(item => {
+    const top = item.getBoundingClientRect().top;
+
+    if (top < trigger) {
+      item.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+  </html>
