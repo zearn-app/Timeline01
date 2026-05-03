@@ -2,268 +2,241 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Our Story Timeline ❤️</title>
+<title>Our School Days ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* Base Styles */
 body {
   margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #fdfbfb, #ebedee);
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
-/* Hero Section with Animation */
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  color: rgba(255,0,100,0.4);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Hero */
 .hero {
   height: 100vh;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
+  color: white;
   text-align: center;
-  animation: fadeInDown 1.5s ease-out;
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  color: #ff4d6d;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  font-size: 3rem;
+  animation: fadeIn 2s ease;
 }
 
-.hero p {
-  font-size: 1.4rem;
-  color: #555;
-  font-style: italic;
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-/* Timeline Base */
+/* Timeline */
 .timeline {
   position: relative;
-  max-width: 1000px;
+  max-width: 900px;
   margin: auto;
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
-/* The Vertical Line - Animated Growth */
 .timeline::after {
   content: '';
   position: absolute;
-  width: 6px;
+  width: 5px;
   background: #ff4d6d;
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -3px;
-  transform-origin: top;
-  transform: scaleY(0);
-  transition: transform 1.5s ease-out;
-  border-radius: 10px;
 }
 
-/* Trigger the line animation when timeline enters view */
-.timeline.animate-line::after {
-  transform: scaleY(1);
-}
-
-/* Timeline Containers */
-.container {
-  padding: 20px 50px;
+/* Cards */
+.card {
+  padding: 20px;
+  width: 45%;
   position: relative;
-  width: 50%;
-  box-sizing: border-box;
   opacity: 0;
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(50px);
+  transition: 0.8s;
 }
 
-.container.left {
-  left: 0;
-  transform: translateX(-100px);
-}
-
-.container.right {
-  left: 50%;
-  transform: translateX(100px);
-}
-
-.container.show {
+.card.show {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
-/* Content Box & Hover Effects */
+.left { left: 0; }
+.right { left: 55%; }
+
 .content {
-  background: white;
-  padding: 25px;
+  background: #fff;
+  padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
 .content:hover {
-  transform: scale(1.03);
-  box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+  transform: scale(1.05);
 }
 
-/* Text Animations */
-.content h2 {
-  margin-top: 0;
+/* Year badge */
+.year {
+  font-weight: bold;
   color: #ff4d6d;
-  transition: color 0.3s ease;
+  margin-bottom: 10px;
 }
 
-.content p {
-  line-height: 1.6;
-  color: #666;
-}
-
-/* Image Animations */
-.container img {
+/* Images */
+.content img {
   width: 100%;
   border-radius: 10px;
-  margin-top: 15px;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.8s ease 0.4s; /* Delayed appearance after text */
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.container.show img {
-  opacity: 1;
-  transform: scale(1);
+.content img:hover {
+  transform: scale(1.1);
 }
 
-/* Circles on Line */
-.container::before {
-  content: '❤️';
-  position: absolute;
-  top: 25px;
-  right: -15px;
-  width: 30px;
-  height: 30px;
-  background: #fff;
-  border: 2px solid #ff4d6d;
-  border-radius: 50%;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  transition: transform 0.4s ease;
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
 }
 
-.container.right::before {
-  left: -15px;
-}
-
-.container.show::before {
-  transform: rotate(360deg);
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 80px 20px;
-  font-size: 1.5rem;
-  color: #ff4d6d;
-  background: white;
-  clip-path: ellipse(100% 100% at 50% 100%);
+.lightbox img {
+  max-width: 80%;
+  border-radius: 10px;
 }
 
 /* Responsive */
-@media screen and (max-width: 600px) {
-  .timeline::after { left: 31px; }
-  .container { width: 100%; padding-left: 70px; padding-right: 25px; }
-  .container.right { left: 0; }
-  .container.left, .container.right { transform: translateX(50px); }
-  .container::before { left: 15px; right: auto; }
+@media(max-width:700px){
+  .card {
+    width: 90%;
+    left: 5% !important;
+  }
+  .timeline::after {
+    left: 20px;
+  }
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="hero">
-  <h1>Our Beautiful Journey ❤️</h1>
-  <p>Scroll down to see our magic unfold...</p>
+  <h1>Our School Days ❤️</h1>
+  <p>From classmates… to something special ✨</p>
 </div>
 
-<div class="timeline" id="mainTimeline">
+<div class="timeline">
 
-  <div class="container left">
+  <div class="card left">
     <div class="content">
-      <h2>💫 The Beginning</h2>
-      <p>The day we met changed everything. A simple "hello" turned into a forever story.</p>
-      <img src="image1.jpg" alt="Our First Meet">
+      <div class="year">📘 6th Grade</div>
+      <p>The first time I saw you… I didn’t know you’d become this important.</p>
+      <img src="image1.jpg">
     </div>
   </div>
 
-  <div class="container right">
+  <div class="card right">
     <div class="content">
-      <h2>🌸 First Memory</h2>
-      <p>Our first laugh together, unforgettable. Time stood still in that very moment.</p>
-      <img src="image2.jpg" alt="First Memory">
+      <div class="year">📗 8th Grade</div>
+      <p>We started talking… small chats that meant everything to me.</p>
+      <img src="image2.jpg">
     </div>
   </div>
 
-  <div class="container left">
+  <div class="card left">
     <div class="content">
-      <h2>🎉 Special Day</h2>
-      <p>A day full of happiness and surprises. Every detail was perfect, just like us.</p>
-      <img src="image3.jpg" alt="Special Day">
+      <div class="year">📕 10th Grade</div>
+      <p>Those memories, laughter, and moments… unforgettable.</p>
+      <img src="image3.jpg">
     </div>
   </div>
 
-  <div class="container right">
+  <div class="card right">
     <div class="content">
-      <h2>❤️ Today</h2>
-      <p>Still creating memories together... and the best is yet to come.</p>
-      <img src="image4.jpg" alt="Today">
+      <div class="year">🎓 Now</div>
+      <p>Still thinking about you… maybe it’s more than friendship ❤️</p>
+      <img src="image4.jpg">
     </div>
   </div>
 
 </div>
 
-<div class="footer">
-  Made with love 💖 <br>
-  <span style="font-size: 1rem; color: #888;">Our Story Never Ends...</span>
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
 </div>
 
 <script>
-// Use Intersection Observer for better performance and smoother triggers
-const observerOptions = {
-  threshold: 0.2
-};
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+/* Scroll Animation */
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      card.classList.add('show');
     }
   });
-}, observerOptions);
-
-// Observe all containers
-document.querySelectorAll('.container').forEach(container => {
-  observer.observe(container);
 });
 
-// Trigger the line animation when the timeline section starts
-const timeline = document.querySelector('.timeline');
-const lineObserver = new IntersectionObserver((entries) => {
-  if(entries[0].isIntersecting) {
-    timeline.classList.add('animate-line');
-  }
-}, { threshold: 0.1 });
+/* Floating Hearts */
+setInterval(()=>{
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.innerText = "❤️";
+  heart.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(heart);
 
-lineObserver.observe(timeline);
+  setTimeout(()=>heart.remove(),6000);
+},500);
+
+/* Lightbox */
+const images = document.querySelectorAll("img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img=>{
+  img.addEventListener("click",()=>{
+    lightbox.style.display = "flex";
+    lightboxImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener("click",()=>{
+  lightbox.style.display = "none";
+});
+
 </script>
 
 </body>
