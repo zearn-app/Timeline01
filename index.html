@@ -2,51 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Our School Days ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our School Memories 💔✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #fdfbfb, #ebedee);
+  background: linear-gradient(to bottom, #1a1a2e, #16213e);
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* Floating hearts */
-.heart {
-  position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-  color: rgba(255,0,100,0.4);
-}
-
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* Hero */
-.hero {
-  height: 100vh;
-  background: linear-gradient(to right, #ff758c, #ff7eb3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white;
+/* Heading */
+h1 {
   text-align: center;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  animation: fadeIn 2s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+  padding: 30px;
+  font-size: 2rem;
+  color: #ff7aa2;
 }
 
 /* Timeline */
@@ -54,95 +29,62 @@ body {
   position: relative;
   max-width: 900px;
   margin: auto;
-  padding: 50px 0;
+  padding: 20px;
 }
 
 .timeline::after {
   content: '';
   position: absolute;
-  width: 5px;
-  background: #ff4d6d;
+  width: 4px;
+  background: #ff7aa2;
   top: 0;
   bottom: 0;
   left: 50%;
+  margin-left: -2px;
 }
 
-/* Cards */
-.card {
-  padding: 20px;
-  width: 45%;
+/* Card */
+.container {
+  padding: 20px 40px;
   position: relative;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.8s;
+  width: 50%;
+  animation: fadeInUp 1s ease forwards;
 }
 
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.left { left: 0; }
-.right { left: 55%; }
+.container.left { left: 0; }
+.container.right { left: 50%; }
 
 .content {
-  background: #fff;
+  background: rgba(255,255,255,0.08);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(255,122,162,0.4);
 }
 
-.content:hover {
-  transform: scale(1.05);
+/* Stickers */
+.sticker {
+  font-size: 24px;
+  position: absolute;
+  top: -10px;
+  right: 10px;
 }
 
-/* Year badge */
-.year {
-  font-weight: bold;
-  color: #ff4d6d;
-  margin-bottom: 10px;
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Images */
-.content img {
-  width: 100%;
-  border-radius: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.content img:hover {
-  transform: scale(1.1);
-}
-
-/* Lightbox */
-.lightbox {
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.8);
-  display:none;
-  justify-content:center;
-  align-items:center;
-}
-
-.lightbox img {
-  max-width: 80%;
-  border-radius: 10px;
-}
-
-/* Responsive */
-@media(max-width:700px){
-  .card {
-    width: 90%;
-    left: 5% !important;
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 70px;
   }
   .timeline::after {
-    left: 20px;
+    left: 30px;
   }
 }
 
@@ -151,93 +93,73 @@ body {
 
 <body>
 
-<div class="hero">
-  <h1>Our School Days ❤️</h1>
-  <p>From classmates… to something special ✨</p>
-</div>
+<h1>📖 Enga School Story 💫</h1>
 
 <div class="timeline">
 
-  <div class="card left">
+  <!-- 2023 -->
+  <div class="container left">
     <div class="content">
-      <div class="year">📘 6th Grade</div>
-      <p>The first time I saw you… I didn’t know you’d become this important.</p>
-      <img src="image1.jpg">
+      <div class="sticker">🎒</div>
+      <h3>2023</h3>
+      <p>
+        Enga 10th life start aachu... 😌✨ <br>
+        9th la join panna Rithik & Barath school vittu poitaanga... 💔
+      </p>
     </div>
   </div>
 
-  <div class="card right">
+  <!-- Sad News -->
+  <div class="container right">
     <div class="content">
-      <div class="year">📗 8th Grade</div>
-      <p>We started talking… small chats that meant everything to me.</p>
-      <img src="image2.jpg">
+      <div class="sticker">😢🕊️</div>
+      <h3>18 Jan 2024</h3>
+      <p>
+        Andha naal romba kastamana naal... 💔 <br>
+        School van oru paiyan ah hit panniduchu... <br>
+        Hospital pogum bodhu avan uyir poi pochu... 😭
+      </p>
     </div>
   </div>
 
-  <div class="card left">
+  <!-- Exams -->
+  <div class="container left">
     <div class="content">
-      <div class="year">📕 10th Grade</div>
-      <p>Those memories, laughter, and moments… unforgettable.</p>
-      <img src="image3.jpg">
+      <div class="sticker">📚🔥</div>
+      <h3>Exam Time</h3>
+      <p>
+        Exam start aana apram ellarum stress la... 😤 <br>
+        Chinna chinna sandai ellam perusa aagiduchu...
+      </p>
     </div>
   </div>
 
-  <div class="card right">
+  <!-- Fight -->
+  <div class="container right">
     <div class="content">
-      <div class="year">🎓 Now</div>
-      <p>Still thinking about you… maybe it’s more than friendship ❤️</p>
-      <img src="image4.jpg">
+      <div class="sticker">🥊😶</div>
+      <h3>Social Exam Revision</h3>
+      <p>
+        2nd day revision la Kaushik & Vishnu... <br>
+        rendu ponnu vishayathula fight pannanga... ⚡
+      </p>
+    </div>
+  </div>
+
+  <!-- TC -->
+  <div class="container left">
+    <div class="content">
+      <div class="sticker">🚫📄</div>
+      <h3>Before Public Exam</h3>
+      <p>
+        Last revision days la... 😔 <br>
+        Vishnu, Barath, Kaushik, Sudarshan... <br>
+        drug case nala TC kuduthaanga... 💔
+      </p>
     </div>
   </div>
 
 </div>
-
-<div class="lightbox" id="lightbox">
-  <img src="" id="lightbox-img">
-</div>
-
-<script>
-
-/* Scroll Animation */
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-  cards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
-      card.classList.add('show');
-    }
-  });
-});
-
-/* Floating Hearts */
-setInterval(()=>{
-  const heart = document.createElement('div');
-  heart.classList.add('heart');
-  heart.innerText = "❤️";
-  heart.style.left = Math.random()*100 + "vw";
-  document.body.appendChild(heart);
-
-  setTimeout(()=>heart.remove(),6000);
-},500);
-
-/* Lightbox */
-const images = document.querySelectorAll("img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-
-images.forEach(img=>{
-  img.addEventListener("click",()=>{
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
-  });
-});
-
-lightbox.addEventListener("click",()=>{
-  lightbox.style.display = "none";
-});
-
-</script>
 
 </body>
 </html>
