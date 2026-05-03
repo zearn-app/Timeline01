@@ -16,180 +16,248 @@ body {
   overflow-x: hidden;
 }
 
-/* PARALLAX BACKGROUND */
-.parallax {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover;
-  z-index: -1;
-  transform: translateY(0);
-  opacity: 0.15;
-}
-
 /* Heading */
 h1 {
   text-align: center;
-  padding: 30px;
+  padding: 40px 20px 20px;
+  font-size: 2.4rem;
   color: #ff7aa2;
+  text-shadow: 0 0 20px rgba(255, 122, 162, 0.6);
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* Timeline */
+/* Timeline Container */
 .timeline {
   position: relative;
   max-width: 900px;
   margin: auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-.timeline::after {
-  content: '';
+/* Curved Timeline Line using SVG */
+.timeline-svg {
   position: absolute;
-  width: 4px;
-  background: #ff7aa2;
   top: 0;
-  bottom: 0;
   left: 50%;
+  width: 6px;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* Cards */
+.timeline-svg line {
+  stroke: #ff7aa2;
+  stroke-width: 6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px #ff7aa2);
+}
+
+/* Card Container */
 .container {
   padding: 20px 40px;
   position: relative;
   width: 50%;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 0.8s ease;
-}
-
-.container.show {
-  opacity: 1;
-  transform: translateY(0);
+  z-index: 2;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
 .container.left { left: 0; }
 .container.right { left: 50%; }
 
+/* Content Card */
 .content {
   background: rgba(255,255,255,0.08);
-  padding: 20px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(255,122,162,0.5);
+  padding: 24px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(255,122,162,0.3);
+  border: 1px solid rgba(255,122,162,0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Stickers floating */
+.content:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 35px rgba(255,122,162,0.5);
+  border-color: #ff7aa2;
+}
+
+/* Stickers */
 .sticker {
-  font-size: 24px;
+  font-size: 32px;
   position: absolute;
-  top: -10px;
-  right: 10px;
-  animation: float 3s ease-in-out infinite;
+  top: -15px;
+  right: 15px;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.content:hover .sticker {
+  transform: rotate(20deg) scale(1.2);
 }
 
-/* Mobile */
+/* Timeline Dots */
+.container::before {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #16213e;
+  border: 4px solid #ff7aa2;
+  border-radius: 50%;
+  top: 35px;
+  z-index: 3;
+  box-shadow: 0 0 12px #ff7aa2;
+  transition: all 0.3s ease;
+}
+
+.container.left::before {
+  right: -11px;
+}
+
+.container.right::before {
+  left: -11px;
+}
+
+.container:hover::before {
+  transform: scale(1.3);
+  box-shadow: 0 0 20px #ff7aa2;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(60px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 15px rgba(255, 122, 162, 0.6); }
+  to { text-shadow: 0 0 30px rgba(255, 122, 162, 0.9); }
+}
+
+/* Staggered animation delays */
+.container:nth-child(1) { animation-delay: 0.1s; }
+.container:nth-child(2) { animation-delay: 0.4s; }
+.container:nth-child(3) { animation-delay: 0.7s; }
+.container:nth-child(4) { animation-delay: 1s; }
+.container:nth-child(5) { animation-delay: 1.3s; }
+
+/* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;
     left: 0 !important;
-    padding-left: 70px;
+    padding-left: 75px;
   }
-  .timeline::after {
-    left: 30px;
+  
+  .timeline-svg {
+    left: 37px;
+    width: 6px;
+  }
+  
+  .container::before {
+    left: 26px;
+    right: auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
   }
 }
-
 </style>
 </head>
 
 <body>
 
-<div class="parallax" id="parallax"></div>
-
 <h1>📖 Enga School Story 💫</h1>
 
 <div class="timeline">
 
+  <!-- Curved SVG Line -->
+  <svg class="timeline-svg" viewBox="0 0 6 1200" preserveAspectRatio="none">
+    <path 
+      d="M3 0 
+         Q 12 150 3 300 
+         Q -8 450 3 600 
+         Q 12 750 3 900 
+         Q -8 1050 3 1200" 
+      fill="none" 
+      stroke="#ff7aa2" 
+      stroke-width="6" 
+      stroke-linecap="round"/>
+  </svg>
+
+  <!-- 2023 -->
   <div class="container left">
     <div class="content">
       <div class="sticker">🎒</div>
       <h3>2023</h3>
       <p>
         Enga 10th life start aachu... 😌✨ <br>
-        Rithik & Barath school vittu poitaanga... 💔
+        9th la join panna Rithik & Barath school vittu poitaanga... 💔
       </p>
     </div>
   </div>
 
+  <!-- Sad News -->
   <div class="container right">
     <div class="content">
       <div class="sticker">😢🕊️</div>
       <h3>18 Jan 2024</h3>
       <p>
-        Andha naal romba kastam... 💔 <br>
-        School van accident... oru paiyanai izhandhom... 😭
+        Andha naal romba kastamana naal... 💔 <br>
+        School van oru paiyan ah hit panniduchu... <br>
+        Hospital pogum bodhu avan uyir poi pochu... 😭
       </p>
     </div>
   </div>
 
+  <!-- Exams -->
   <div class="container left">
     <div class="content">
       <div class="sticker">📚🔥</div>
       <h3>Exam Time</h3>
       <p>
-        Exam stress nala sandai ellam adhigam aachu... 😤
+        Exam start aana apram ellarum stress la... 😤 <br>
+        Chinna chinna sandai ellam perusa aagiduchu...
       </p>
     </div>
   </div>
 
+  <!-- Fight -->
   <div class="container right">
     <div class="content">
       <div class="sticker">🥊😶</div>
-      <h3>Social Revision</h3>
+      <h3>Social Exam Revision</h3>
       <p>
-        Kaushik & Vishnu rendu perum fight pannanga... ⚡
+        2nd day revision la Kaushik & Vishnu... <br>
+        rendu ponnu vishayathula fight pannanga... ⚡
       </p>
     </div>
   </div>
 
+  <!-- TC -->
   <div class="container left">
     <div class="content">
       <div class="sticker">🚫📄</div>
       <h3>Before Public Exam</h3>
       <p>
+        Last revision days la... 😔 <br>
         Vishnu, Barath, Kaushik, Sudarshan... <br>
-        TC kuduthaanga... 💔
+        drug case nala TC kuduthaanga... 💔
       </p>
     </div>
   </div>
 
 </div>
-
-<script>
-// SCROLL REVEAL
-const containers = document.querySelectorAll('.container');
-
-window.addEventListener('scroll', () => {
-  containers.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add('show');
-    }
-  });
-});
-
-// PARALLAX EFFECT
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  document.getElementById('parallax').style.transform =
-    'translateY(' + scrollY * 0.3 + 'px)';
-});
-</script>
 
 </body>
 </html>
