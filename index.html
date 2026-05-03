@@ -16,11 +16,21 @@ body {
   overflow-x: hidden;
 }
 
+/* PARALLAX BACKGROUND */
+.parallax {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f') center/cover;
+  z-index: -1;
+  transform: translateY(0);
+  opacity: 0.15;
+}
+
 /* Heading */
 h1 {
   text-align: center;
   padding: 30px;
-  font-size: 2rem;
   color: #ff7aa2;
 }
 
@@ -40,15 +50,21 @@ h1 {
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -2px;
 }
 
-/* Card */
+/* Cards */
 .container {
   padding: 20px 40px;
   position: relative;
   width: 50%;
-  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+}
+
+.container.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .container.left { left: 0; }
@@ -59,21 +75,21 @@ h1 {
   padding: 20px;
   border-radius: 15px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(255,122,162,0.4);
+  box-shadow: 0 0 20px rgba(255,122,162,0.5);
 }
 
-/* Stickers */
+/* Stickers floating */
 .sticker {
   font-size: 24px;
   position: absolute;
   top: -10px;
   right: 10px;
+  animation: float 3s ease-in-out infinite;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 /* Mobile */
@@ -93,73 +109,87 @@ h1 {
 
 <body>
 
+<div class="parallax" id="parallax"></div>
+
 <h1>📖 Enga School Story 💫</h1>
 
 <div class="timeline">
 
-  <!-- 2023 -->
   <div class="container left">
     <div class="content">
       <div class="sticker">🎒</div>
       <h3>2023</h3>
       <p>
         Enga 10th life start aachu... 😌✨ <br>
-        9th la join panna Rithik & Barath school vittu poitaanga... 💔
+        Rithik & Barath school vittu poitaanga... 💔
       </p>
     </div>
   </div>
 
-  <!-- Sad News -->
   <div class="container right">
     <div class="content">
       <div class="sticker">😢🕊️</div>
       <h3>18 Jan 2024</h3>
       <p>
-        Andha naal romba kastamana naal... 💔 <br>
-        School van oru paiyan ah hit panniduchu... <br>
-        Hospital pogum bodhu avan uyir poi pochu... 😭
+        Andha naal romba kastam... 💔 <br>
+        School van accident... oru paiyanai izhandhom... 😭
       </p>
     </div>
   </div>
 
-  <!-- Exams -->
   <div class="container left">
     <div class="content">
       <div class="sticker">📚🔥</div>
       <h3>Exam Time</h3>
       <p>
-        Exam start aana apram ellarum stress la... 😤 <br>
-        Chinna chinna sandai ellam perusa aagiduchu...
+        Exam stress nala sandai ellam adhigam aachu... 😤
       </p>
     </div>
   </div>
 
-  <!-- Fight -->
   <div class="container right">
     <div class="content">
       <div class="sticker">🥊😶</div>
-      <h3>Social Exam Revision</h3>
+      <h3>Social Revision</h3>
       <p>
-        2nd day revision la Kaushik & Vishnu... <br>
-        rendu ponnu vishayathula fight pannanga... ⚡
+        Kaushik & Vishnu rendu perum fight pannanga... ⚡
       </p>
     </div>
   </div>
 
-  <!-- TC -->
   <div class="container left">
     <div class="content">
       <div class="sticker">🚫📄</div>
       <h3>Before Public Exam</h3>
       <p>
-        Last revision days la... 😔 <br>
         Vishnu, Barath, Kaushik, Sudarshan... <br>
-        drug case nala TC kuduthaanga... 💔
+        TC kuduthaanga... 💔
       </p>
     </div>
   </div>
 
 </div>
+
+<script>
+// SCROLL REVEAL
+const containers = document.querySelectorAll('.container');
+
+window.addEventListener('scroll', () => {
+  containers.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add('show');
+    }
+  });
+});
+
+// PARALLAX EFFECT
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  document.getElementById('parallax').style.transform =
+    'translateY(' + scrollY * 0.3 + 'px)';
+});
+</script>
 
 </body>
 </html>
