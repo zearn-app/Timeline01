@@ -5,7 +5,7 @@
   are available.
 */
 const CONFIG = {
-  WHATSAPP_NUMBER: "", // Example: "919876543210" — do NOT add + or spaces
+  WHATSAPP_NUMBER: "", // Example: "8680852640" — do NOT add + or spaces
   INSTAGRAM_URL: "https://instagram.com/ilai_handmades",
   YOUTUBE_URL: ""
 };
