@@ -1,13 +1,262 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ilai Handmades | Handmade Jewellery & Custom Gifts</title>
+  <meta name="description" content="Discover handmade and imitation jewellery, customised gifts and return gifts from Ilai Handmades. All India shipping from Coimbatore.">
+  <meta name="theme-color" content="#6f8f72">
+  <meta property="og:title" content="Ilai Handmades | Handmade Jewellery & Custom Gifts">
+  <meta property="og:description" content="Handmade jewellery, customised gifts and return gifts from Coimbatore.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/ilai-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="announcement">✨ Handmade with love · All India Shipping · Customised Orders Welcome</div>
 
-   
+  <header class="navbar" id="navbar">
+    <a class="brand" href="#home" aria-label="Ilai Handmades home">
+      <img src="assets/ilai-logo.png" alt="Ilai Handmades logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="brand-fallback">ILAI<br><small>HANDMADES</small></span>
+    </a>
 
-    <img src="resume.png" alt="Image" width="500">
+    <nav class="desktop-nav">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#jewellery">Jewellery</a>
+      <a href="#gifts">Gifts</a>
+      <a href="#custom">Custom Orders</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button>
+      <button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">♡</button>
+      <button class="icon-btn cart-trigger" id="cartBtn" aria-label="Cart">🛍<span id="cartCount">0</span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">×</button>
+    <a href="#home">Home</a><a href="#shop">Shop</a><a href="#jewellery">Jewellery</a>
+    <a href="#gifts">Gifts</a><a href="#custom">Custom Orders</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">HANDMADE · THOUGHTFUL · YOURS</span>
+        <h1>Handmade With Love.<br><em>Chosen For Your Moments.</em></h1>
+        <p>Discover beautiful handmade jewellery, thoughtful gifts and customised creations made to make every occasion special.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-dark" href="#shop">Explore Collection <span>→</span></a>
+          <a class="btn btn-outline" href="#custom">Customise Your Gift</a>
+        </div>
+        <button class="text-link whatsapp-action" data-message="Hi Ilai Handmades, I'd like to explore your collection.">Order on WhatsApp ↗</button>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-image-main">
+          <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1000&q=85" alt="Elegant jewellery">
+        </div>
+        <div class="hero-card">
+          <span>Made for</span><strong>special moments</strong>
+          <span>♡</span>
+        </div>
+        <div class="hero-orb">ILAI<br><small>HANDMADE</small></div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div><strong>3,300+</strong><span>Instagram Followers</span></div>
+      <div><strong>Pan India</strong><span>Shipping Available</span></div>
+      <div><strong>Custom</strong><span>Orders Welcome</span></div>
+      <div><strong>Urgent</strong><span>Orders Accepted</span></div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="section-heading reveal">
+        <span class="eyebrow">EXPLORE</span>
+        <h2>Find Something Special</h2>
+        <p>Browse a curated demo catalogue. Real products, images and prices can be updated later.</p>
+      </div>
+      <div class="category-grid">
+        <button class="category-card reveal" data-filter="Handmade Jewellery">
+          <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80" alt="Handmade jewellery">
+          <span>💎</span><h3>Handmade Jewellery</h3><small>Explore collection →</small>
+        </button>
+        <button class="category-card reveal" data-filter="Customised Gifts">
+          <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=700&q=80" alt="Customised gifts">
+          <span>🎁</span><h3>Customised Gifts</h3><small>Made personal →</small>
+        </button>
+        <button class="category-card reveal" data-filter="Return Gifts">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80" alt="Gift box">
+          <span>🌸</span><h3>Return Gifts</h3><small>For every occasion →</small>
+        </button>
+        <button class="category-card reveal" data-filter="Imitation Jewellery">
+          <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80" alt="Imitation jewellery">
+          <span>✨</span><h3>Imitation Jewellery</h3><small>Everyday sparkle →</small>
+        </button>
+        <button class="category-card reveal" data-filter="Special Occasion Gifts">
+          <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=700&q=80" alt="Special occasion gift">
+          <span>🎀</span><h3>Special Occasion Gifts</h3><small>Celebrate beautifully →</small>
+        </button>
+        <button class="category-card reveal" data-filter="New Arrivals">
+          <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=700&q=80" alt="New jewellery">
+          <span>🆕</span><h3>New Arrivals</h3><small>Fresh from Ilai →</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="section soft" id="jewellery">
+      <div class="section-heading row-heading reveal">
+        <div><span class="eyebrow">EDITABLE DEMO CATALOGUE</span><h2>Made To Make Someone Smile</h2></div>
+        <button class="filter-reset" id="resetFilter">View all</button>
+      </div>
+      <div class="search-wrap" id="searchWrap">
+        <input id="searchInput" type="search" placeholder="Search earrings, gifts, bracelets..." aria-label="Search products">
+        <span>⌕</span>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state" id="emptyState">No matching products found. Try another search.</div>
+    </section>
+
+    <section class="split-section" id="custom">
+      <div class="split-image reveal">
+        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=85" alt="Gift packaging">
+      </div>
+      <div class="split-copy reveal">
+        <span class="eyebrow">CUSTOM ORDERS</span>
+        <h2>Have Something<br><em>Special In Mind?</em></h2>
+        <p>Tell us what you're looking for and we'll help you create something special.</p>
+        <ul class="check-list">
+          <li>Customised Gifts</li><li>Return Gifts</li><li>Special Occasion Orders</li><li>Bulk Orders</li><li>Urgent Orders</li>
+        </ul>
+        <button class="btn btn-dark whatsapp-action" data-message="Hi Ilai Handmades, I'd like to enquire about a customised order.">Request a Custom Order</button>
+      </div>
+    </section>
+
+    <section class="occasion-section" id="gifts">
+      <div class="section-heading reveal">
+        <span class="eyebrow">RETURN GIFTS</span>
+        <h2>Beautiful Return Gifts For Every Occasion</h2>
+        <p>Thoughtful little details for celebrations big and small.</p>
+      </div>
+      <div class="occasion-grid">
+        <div><b>Birthday</b><span>🎂</span></div><div><b>Wedding</b><span>💍</span></div>
+        <div><b>Baby Shower</b><span>🍼</span></div><div><b>Engagement</b><span>💐</span></div>
+        <div><b>Festivals</b><span>✨</span></div><div><b>Special Events</b><span>🎉</span></div>
+      </div>
+      <div class="center-actions">
+        <button class="btn btn-dark" data-scroll-filter="Return Gifts">Explore Return Gifts</button>
+        <button class="btn btn-outline whatsapp-action" data-message="Hi Ilai Handmades, I'd like to enquire about bulk return gifts.">Ask About Bulk Orders</button>
+      </div>
+    </section>
+
+    <section class="event-section reveal">
+      <div class="event-content">
+        <span class="eyebrow">EVENTS & EXHIBITIONS</span>
+        <h2>Meet Us At Our Next Event</h2>
+        <p class="event-placeholder">Upcoming events will be updated here.</p>
+        <div class="event-fields">
+          <div><small>EVENT NAME</small><strong>—</strong></div>
+          <div><small>DATE</small><strong>—</strong></div>
+          <div><small>LOCATION</small><strong>—</strong></div>
+          <div><small>STALL</small><strong>—</strong></div>
+        </div>
+        <button class="btn btn-light whatsapp-action" data-message="Hi Ilai Handmades, I'd like to get details about your upcoming events.">Get Event Details</button>
+      </div>
+    </section>
+
+    <section class="section" id="new">
+      <div class="section-heading row-heading reveal">
+        <div><span class="eyebrow">JUST IN</span><h2>Fresh From Ilai</h2></div>
+        <button class="filter-reset" data-scroll-filter="New Arrivals">View all new arrivals →</button>
+      </div>
+      <div class="horizontal-products" id="newProducts"></div>
+    </section>
+
+    <section class="instagram-section" id="instagram">
+      <div class="section-heading reveal">
+        <span class="eyebrow">FOLLOW ALONG</span>
+        <h2>Follow Our Handmade Journey</h2>
+        <p>Jewellery, gifts, exhibitions and little behind-the-scenes moments.</p>
+      </div>
+      <div class="insta-grid">
+        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=600&q=80" alt="Jewellery">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="Jewellery detail">
+        <img src="https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=600&q=80" alt="Gift">
+        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80" alt="Gift box">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="Handmade jewellery">
+        <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=600&q=80" alt="Jewellery">
+      </div>
+      <a class="btn btn-dark" href="https://instagram.com/ilai_handmades" target="_blank" rel="noopener">Follow @ilai_handmades ↗</a>
+    </section>
+
+    <section class="reviews-section" id="reviews">
+      <div class="section-heading reveal"><span class="eyebrow">DEMO TESTIMONIALS</span><h2>Loved By Our Customers</h2><p>Replace these editable demo reviews with real customer feedback.</p></div>
+      <div class="review-grid">
+        <article class="review reveal"><div class="stars">★★★★★</div><p>“Beautiful collection and lovely finishing. Absolutely loved my order.”</p><strong>— Happy Customer</strong></article>
+        <article class="review reveal"><div class="stars">★★★★★</div><p>“Perfect for gifting. The customised work was beautiful.”</p><strong>— Happy Customer</strong></article>
+        <article class="review reveal"><div class="stars">★★★★★</div><p>“Such a thoughtful little gift. The overall experience was lovely.”</p><strong>— Happy Customer</strong></article>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-copy reveal">
+        <span class="eyebrow">OUR STORY</span>
+        <h2>About Ilai Handmades</h2>
+        <p>Ilai Handmades brings together beautiful handmade and imitation jewellery along with thoughtful customised and return gifts.</p>
+        <p>From everyday accessories to special gifts for meaningful occasions, our collections are created to add a little more beauty to every moment.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="eyebrow">WHY SHOP WITH ILAI?</span>
+        <div class="why-list"><div>♡ <b>Handmade & Carefully Selected</b></div><div>✦ <b>Customised Options</b></div><div>⌁ <b>All India Shipping</b></div><div>⚡ <b>Urgent Orders Accepted</b></div><div>☏ <b>Personalised Support</b></div></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-card reveal">
+        <span class="eyebrow">GET IN TOUCH</span>
+        <h2>Let's Create<br><em>Something Special</em></h2>
+        <p>Have a product in mind, a gifting requirement or a bulk order? We'd love to hear from you.</p>
+        <div class="contact-details">
+          <span>📍 Coimbatore, Tamil Nadu</span><span>🚚 All India Shipping</span><span>💬 WhatsApp / DM for Orders</span><span>📦 Urgent Orders Accepted</span>
+        </div>
+        <button class="btn btn-light whatsapp-action" data-message="Hi Ilai Handmades, I'd like to enquire about your products.">Chat With Ilai Handmades</button>
+        <a class="instagram-link" href="https://instagram.com/ilai_handmades" target="_blank" rel="noopener">@ilai_handmades ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span>ILAI</span><small>HANDMADES</small><p>Handmade jewellery · Thoughtful gifts · Beautiful moments</p></div>
+    <div><h4>Explore</h4><a href="#shop">Shop</a><a href="#jewellery">Jewellery</a><a href="#gifts">Gifts</a><a href="#custom">Custom Orders</a></div>
+    <div><h4>Connect</h4><a href="https://instagram.com/ilai_handmades" target="_blank">Instagram</a><a href="#contact">Contact</a><span>Coimbatore, Tamil Nadu</span></div>
+    <div><h4>Demo Note</h4><p>Product names, images, reviews and other unavailable details are editable demo content.</p></div>
+    <div class="copyright">© 2026 Ilai Handmades · All rights reserved.</div>
+  </footer>
+
+  <button class="floating-whatsapp whatsapp-action" data-message="Hi Ilai Handmades, I'd like to enquire about your products." aria-label="Chat on WhatsApp">☏<span>WhatsApp</span></button>
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-head"><div><span class="eyebrow">YOUR SELECTION</span><h3>Enquiry Cart</h3></div><button id="cartClose">×</button></div>
+    <div id="cartItems"></div>
+    <div class="cart-bottom"><div class="cart-note">Prices are shown as <b>Price on Request</b> in this demo.</div><button class="btn btn-dark full" id="cartWhatsapp">Order on WhatsApp</button></div>
+  </aside>
+
+  <div class="modal" id="productModal">
+    <button class="modal-close" id="modalClose">×</button>
+    <div id="modalContent"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
